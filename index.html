@@ -34,11 +34,13 @@
     <div class="text-center mt-5" id="form" style="display: none">
       <h1>All Done</h1>
       <h5>Your final score is: <span id="final-result"></span></h5>
-      <form id="myForm" action="/highscore.html">
+      <form id="myForm">
         Enter Initials:
-        <input type="text" name="fname" value="" /><br />
-        <input type="submit" value="Submit" />
+        <input type="fname" name="fname" value="" id="fname" /><br />
       </form>
+      <button id="submit" onclick="window.location.href='highscore.html'">
+        Submit
+      </button>
     </div>
     <div class="timer">Time: <span id="time">0</span></div>
 

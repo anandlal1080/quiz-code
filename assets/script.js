@@ -5,6 +5,7 @@ const questionText = document.querySelector("#question-text");
 const answerDiv = document.querySelector("#answers");
 const showResult = document.createElement("p");
 const formContainer = document.querySelector("#form");
+const submitBtn = document.querySelector("#submit");
 let finalResult = document.querySelector("#final-result");
 
 let timer = document.querySelector(".timer");
@@ -139,8 +140,9 @@ function gameOver() {
     formContainer.style.display = "block";
     timer.style.display = "none";
     finalResult.textContent = `${score}`;
-
-
+    submitBtn.addEventListener("click", submitInitials);
+    
+    
     
 }
 
@@ -155,3 +157,19 @@ function startTimer() {
         }
     }, 1000);
 }
+
+function submitInitials(event) {
+  event.preventDefault();
+  let initials = document.querySelector("#fname");
+  let initToSend = initials.value;
+  let finalData = {
+    init: initToSend,
+    userscore: finalResult.textContent,
+  }
+  let highScores = JSON.parse(window.localStorage.getItem("allScores")) || [];
+  
+  highScores.push(finalData);
+  
+  localStorage.setItem("allScores", JSON.stringify(highScores));
+}
+
