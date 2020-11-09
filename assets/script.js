@@ -3,7 +3,7 @@ const startPrompt = document.querySelector("#start-prompt");
 const questionContainer = document.querySelector("#question-container");
 const questionText = document.querySelector("#question-text");
 const answerDiv = document.querySelector("#answers");
-const showResult = document.createElement("p");
+let showResult = document.createElement("p");
 const formContainer = document.querySelector("#form");
 const submitBtn = document.querySelector("#submit");
 let finalResult = document.querySelector("#final-result");
@@ -65,6 +65,7 @@ function handleStartClick(e) {
 
 
 
+showResult.setAttribute("id", "showResult");
 
 function handleAnswerClick(e) {
     e.preventDefault();
@@ -80,7 +81,6 @@ function handleAnswerClick(e) {
 
 
     
-    showResult.setAttribute("id", "showResult");
     
     if (userAnswer === correctAnswer) {
         //score++;
@@ -101,7 +101,7 @@ function handleAnswerClick(e) {
 
     }
     else {
-        showResult.innerHTML = "";
+        
         renderQuestion();
     }
         
