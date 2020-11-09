@@ -158,18 +158,20 @@ function startTimer() {
     }, 1000);
 }
 
-function submitInitials(event) {
-  event.preventDefault();
+function submitInitials(e) {
+  e.preventDefault();
   let initials = document.querySelector("#fname");
   let initToSend = initials.value;
   let finalData = {
     init: initToSend,
     userscore: finalResult.textContent,
   }
-  let highScores = JSON.parse(window.localStorage.getItem("allScores")) || [];
+  let highScores = JSON.parse(window.localStorage.getItem("leaderBoard")) || [];
   
   highScores.push(finalData);
   
-  localStorage.setItem("allScores", JSON.stringify(highScores));
+  localStorage.setItem("leaderBoard", JSON.stringify(highScores));
+  
+
 }
 

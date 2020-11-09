@@ -14,7 +14,24 @@
     />
   </head>
   <body>
-    <script src="assets/script.js"></script>
+    <div class="text-center mt-5">
+      <div id="start-prompt">
+        <h1>Highscores</h1>
+        <div id="leaderboard-container">
+          <div id="leaderboard"></div>
+        </div>
+        <button
+          class="btn btn-primary"
+          id="goback"
+          onclick="window.location.href='index.html'"
+        >
+          Go Back
+        </button>
+        <button class="btn btn-primary" id="clearscores">Clear Scores</button>
+      </div>
+    </div>
+
+    <script src="assets/highscore.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
