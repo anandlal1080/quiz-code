@@ -1,3 +1,4 @@
+//declaring variables needed throughout the script
 const startBtn = document.querySelector("#start");
 const startPrompt = document.querySelector("#start-prompt");
 const questionContainer = document.querySelector("#question-container");
@@ -7,15 +8,16 @@ let showResult = document.createElement("p");
 const formContainer = document.querySelector("#form");
 const submitBtn = document.querySelector("#submit");
 let finalResult = document.querySelector("#final-result");
-
 let timer = document.querySelector(".timer");
 let time = document.querySelector("#time");
+
+//Initializing the score, time-loss penalty and starting time variables.
 let score = 0;
 let losstime = 10;
 let timeTotal = 75;
 time.textContent = `${timeTotal} seconds left`;
 
-
+//Array of questions and their corresponding answers.
 const questions = [
     {
         text: "	What is the name of the German airline?",
@@ -43,44 +45,55 @@ const questions = [
         correctIndex: 3,
     }
 ];
+
+//Initializing the question index to the first element in the array.
 let questionIndex = 0;
 
 
-
+//Creating the variables to listen for clicks with the Start Button and the Answer button.
 answerDiv.addEventListener("click", handleAnswerClick);
 startBtn.addEventListener("click", handleStartClick);
 
+
+//Declaring a function to be called when the user clicks the start buton.
 function handleStartClick(e) {
     
+    //Hides the Main screen and shows the Question container.
     startPrompt.style.display = "none";
     questionContainer.style.display = "block";
 
     let currentQuestion = questions[questionIndex];
     questionText.textContent = currentQuestion.text;
 
+    //Calling 2 functions here. renderQuestion to call the next question in the list and startTimer to begin the countdown
     renderQuestion();
     startTimer();
    
 };
 
 
-
+//This is going to set the arttribute for the showResult variable that creates the p tag from line 7.
 showResult.setAttribute("id", "showResult");
 
+
+//This function determines what happens when the user clicks on any of the ansser button for each question.
 function handleAnswerClick(e) {
     e.preventDefault();
 
+    // This check to make sure the user is clicking on a valid answer.
     if (!e.target.matches("button")) return;      
     
-
+    // Declaring a uswerAnswer valriable which is equal to the answer button that the user selected.
     const userAnswer = e.target.textContent;
 
+    // This sets the question to the specific question in the question array.
     const question = questions[questionIndex];
 
+    //This sets teh correct answer to the correct answer from the questions array.
     const correctAnswer = question.answers[question.correctIndex];
 
 
-    
+    //Here we implement the logic to determine if the user answers are correct and let the user konw if they were correct or wrong.
     
     if (userAnswer === correctAnswer) {
         //score++;
@@ -94,8 +107,10 @@ function handleAnswerClick(e) {
         questionContainer.appendChild(showResult);
     }
 
+    //Here we are then incremeting the question Array to the next question.
     questionIndex++;
    
+    //This if-else statement checks to see if we are at the end of the question array. If we are, then we call the gameOver function. Else, we render the next question.
     if (questionIndex == questions.length) {  
         gameOver();
 
@@ -103,13 +118,10 @@ function handleAnswerClick(e) {
     else {
         
         renderQuestion();
-    }
-        
-         
-    
-    
+    }    
 }
 
+//This function 
 function renderQuestion() {
 
     const currentQuestion = questions[questionIndex];
