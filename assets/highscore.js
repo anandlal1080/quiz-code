@@ -12,10 +12,12 @@ function eraseBoard(e) {
     
 }
 
-
 function addPersonToList(e) {
-   
-
+    
+    highScores.sort(function (a,b) {
+        return b.userscore - a.userscore;
+    });
+    
     for (let i = 0; i < highScores.length; i++) {
         
         var li = document.createElement("li");
