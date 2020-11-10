@@ -1,4 +1,4 @@
-![Main Page](/assets/Main.JPG)
+![Main Page](assets/Main.JPG)
 
 Welcome to the Quiz Game!
 
@@ -9,10 +9,10 @@ Welcome to the Quiz Game!
           However, be careful with your answers as you lose 10 secs for each
           incorrect answer.
 
-![Questions](/assets/Questions.JPG)
+![Questions](assets/Questions.JPG)
 
-![Submit](/assets/Submit.jpg)
+![Submit](assets/Submit.JPG)
 
-![Highscores](/assets/Highscores.jpg)
+![Highscores](assets/Highscores.JPG)
 
 https://anandlal1080.github.io/quiz-code/
