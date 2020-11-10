@@ -121,7 +121,7 @@ function handleAnswerClick(e) {
     }    
 }
 
-//This function 
+//This function will display each question in the array.
 function renderQuestion() {
 
     const currentQuestion = questions[questionIndex];
@@ -130,7 +130,7 @@ function renderQuestion() {
 
     answerDiv.innerHTML = "";
     
-
+// This for loop will iterate through the questions array to display all the questions.
     for (let i = 0; i < currentQuestion.answers.length; i++) {
         const answer = currentQuestion.answers[i];
 
@@ -145,7 +145,7 @@ function renderQuestion() {
     }
     
 }
-
+// This is the function that get's called when the last question is answered. This function is responsible for hiding the question container, displaying the form to enter initials and displaying the final score.
 function gameOver() {
 
     questionContainer.style.display = "none";
@@ -157,7 +157,7 @@ function gameOver() {
     
     
 }
-
+// This function is responsible for starting the game timer, enforing the time penalty for wrong answers and getting the final score.
 function startTimer() {
     setInterval(function() {
         if(timeTotal > 0) {
@@ -170,6 +170,7 @@ function startTimer() {
     }, 1000);
 }
 
+// This function is to store the user initials on the local storage and the retrieve from local storage.
 function submitInitials(e) {
   e.preventDefault();
   let initials = document.querySelector("#fname");

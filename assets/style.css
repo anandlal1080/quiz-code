@@ -12,6 +12,8 @@
 
 .btn {
   border: 4px solid;
+  background-color: green;
+
   border-radius: 10px;
   width: 200px;
   padding-left: 10px;
@@ -20,4 +22,28 @@
   float: center;
 
   margin: 0 2px 0 2px;
+}
+
+#leaderboard {
+  color: rgb(247, 248, 190);
+  display: grid;
+  justify-items: center;
+}
+
+li {
+  background: #0b3512;
+  margin: 5px;
+  display: block;
+  width: fit-content;
+  padding: 5px;
+}
+
+#start-prompt {
+  text-align: center;
+  word-wrap: normal;
+  color: #0b3512;
+
+  display: grid;
+  justify-items: center;
+  display: block;
 }
